@@ -1,0 +1,30 @@
+{
+  "device": "cuda",
+  "splits": {
+    "train": 486,
+    "val": 95,
+    "test": 116
+  },
+  "node_feat_dim": 22,
+  "context_dim": 25,
+  "place_dim": 20,
+  "best_k_by_silhouette": 7,
+  "train_eval": {
+    "loss": 0.007820657512638718,
+    "place_loss": 0.0010036243838840164,
+    "area_loss": 0.0005365223551052622,
+    "distance_loss": 0.006548771925736219
+  },
+  "val_eval": {
+    "loss": 0.010138205718249083,
+    "place_loss": 0.0012761135585606098,
+    "area_loss": 0.0008213947003241628,
+    "distance_loss": 0.008451394736766815
+  },
+  "test_eval": {
+    "loss": 0.009426022646948695,
+    "place_loss": 0.0011436660133767873,
+    "area_loss": 0.0007585638522868976,
+    "distance_loss": 0.007903074845671654
+  }
+}

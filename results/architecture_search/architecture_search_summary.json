@@ -1,0 +1,61 @@
+{
+  "search_configs": [
+    {
+      "gat_layers": 1,
+      "gru_layers": 1,
+      "hidden_dim": 64,
+      "embedding_dim": 64
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 1,
+      "hidden_dim": 64,
+      "embedding_dim": 64
+    },
+    {
+      "gat_layers": 3,
+      "gru_layers": 1,
+      "hidden_dim": 64,
+      "embedding_dim": 64
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 1,
+      "hidden_dim": 32,
+      "embedding_dim": 32
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 1,
+      "hidden_dim": 64,
+      "embedding_dim": 32
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 1,
+      "hidden_dim": 64,
+      "embedding_dim": 128
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 1,
+      "hidden_dim": 128,
+      "embedding_dim": 64
+    },
+    {
+      "gat_layers": 2,
+      "gru_layers": 2,
+      "hidden_dim": 64,
+      "embedding_dim": 64
+    }
+  ],
+  "best_config": {
+    "gat_layers": 3,
+    "gru_layers": 1,
+    "hidden_dim": 64,
+    "embedding_dim": 64
+  },
+  "best_search_run": "runs/method_c_dense_search_g3_gru1_h64_e64",
+  "final_run_dir": "runs/method_c_dense_best_g3_gru1_h64_e64_20260409",
+  "final_analysis_dir": "runs/method_c_dense_best_g3_gru1_h64_e64_20260409_analysis"
+}

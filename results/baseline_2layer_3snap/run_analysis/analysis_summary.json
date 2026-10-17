@@ -1,0 +1,21 @@
+{
+  "source_run_dir": "results/baseline_2layer_3snap/run",
+  "reference_best_k_from_training": 7,
+  "recommended_k_from_multi_metric_analysis": 9,
+  "recommended_k_in_word_expected_range_5_to_8": 8,
+  "recommended_k_avg_rank": 3.6666666666666665,
+  "best_k_silhouette": 0.19787369974416075,
+  "best_k_davies_bouldin": 1.5339972062137004,
+  "best_k_calinski_harabasz": 104.61808208446602,
+  "team_fingerprint_count": 28,
+  "resolved_team_fingerprint_count_ge10_rounds": 26,
+  "folder_name_mismatch_count": 2,
+  "score_shift_team_count": 9,
+  "opponent_shift_team_count": 17,
+  "h2_team_pair_count": 22,
+  "h2_significant_cluster_count_p_lt_0_05": 0,
+  "h3_significant_team_count_p_lt_0_05": 0,
+  "h3_skipped_team_count": 0,
+  "tactical_consistency_cluster_count": 9,
+  "naming_heuristic_cluster_count": 9
+}

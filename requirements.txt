@@ -1,0 +1,13 @@
+# Versions used to verify this release (Python 3.13, macOS, CPU).
+# The original experiments ran on Python 3.11 with CUDA; any recent
+# PyTorch 2.x / pandas 2.x+ release should work.
+torch==2.14.1
+numpy==2.5.4
+pandas==3.0.6
+pyarrow==26.0.0      # pyarrow 19 cannot read the Parquet files in data/
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2
+
+# Only needed for scripts/parse_demos.py (Awpy 3.x has a different API).
+awpy==2.0.2

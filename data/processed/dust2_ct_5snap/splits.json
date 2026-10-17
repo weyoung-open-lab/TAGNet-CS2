@@ -1,0 +1,41 @@
+{
+  "train": [
+    "parivision-vs-monte_dust2",
+    "falcons-vs-parivision_dust2",
+    "liquid-vs-falcons_dust2",
+    "natus-vincere-vs-3dmax_dust2",
+    "parivision-vs-legacy_dust2",
+    "monte-vs-natus-vincere_dust2",
+    "natus-vincere-vs-legacy_dust2",
+    "mouz-vs-heroic_dust2",
+    "inner-circle-vs-spirit_dust2",
+    "mouz-vs-fut_dust2",
+    "natus-vincere-vs-g2_dust2",
+    "navi-vs-aurora_dust2",
+    "heroic-vs-furia_dust2",
+    "parivision-vs-semperfi_dust2",
+    "parivision-vs-astralis_dust2",
+    "faze-vs-aurora_dust2",
+    "parivision-vs-heroic_dust2",
+    "astralis-vs-spirit_dust2",
+    "the-mongolz-vs-aurora_dust2",
+    "mouz-vs-9z_dust2",
+    "natus-vincere-vs-b8_dust2",
+    "falcons-vs-furia_dust2",
+    "natus-vincere-vs-aurora_dust2"
+  ],
+  "val": [
+    "natus-vincere-vs-monte_dust2",
+    "falcons-vs-natus-vincere_dust2",
+    "the-mongolz-vs-3dmax_dust2",
+    "falcons-vs-nrg_dust2",
+    "parivision-vs-pain_dust2"
+  ],
+  "test": [
+    "virtus-pro-vs-vitality_dust2",
+    "gamerlegion-vs-vitality_dust2",
+    "nrg-vs-furia_dust2",
+    "aurora-vs-furia_dust2",
+    "fut-vs-furia_dust2"
+  ]
+}

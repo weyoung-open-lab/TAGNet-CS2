@@ -1,0 +1,7 @@
+{
+  "best_method": "kmeans",
+  "best_k": 2,
+  "best_silhouette": 0.21183136535429642,
+  "best_davies_bouldin": 1.8005642776363362,
+  "best_calinski_harabasz": 207.32314916220685
+}

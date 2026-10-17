@@ -1,0 +1,35 @@
+{
+  "protocol": "original_all_697_sklearn_kmeans",
+  "sample_count": 697,
+  "rule_label_counts": {
+    "balanced": 326,
+    "a_leaning": 164,
+    "mid_control": 110,
+    "b_heavy": 54,
+    "a_heavy": 43
+  },
+  "count_kmeans": {
+    "silhouette": 0.3005386882673653,
+    "davies_bouldin": 1.290872547139837,
+    "calinski_harabasz": 204.57649059119396,
+    "cluster_count": 6
+  },
+  "rule_labels": {
+    "silhouette": 0.16630812368930953,
+    "davies_bouldin": 1.6606386445059305,
+    "calinski_harabasz": 123.673477177098,
+    "cluster_count": 5
+  },
+  "tagnet_kmeans": {
+    "silhouette": 0.1835475176413276,
+    "davies_bouldin": 1.7458317867030908,
+    "calinski_harabasz": 116.08952076071766,
+    "cluster_count": 6
+  },
+  "tagnet_agreement": {
+    "count_kmeans_ari": 0.37461933212481957,
+    "count_kmeans_nmi": 0.4394623495256749,
+    "rule_ari": 0.30098015912281184,
+    "rule_nmi": 0.4462368562305171
+  }
+}

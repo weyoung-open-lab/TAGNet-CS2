@@ -1,0 +1,35 @@
+﻿match_id,folder_name,folder_team_a,folder_team_b,map_name,patch_version,server_name,include_in_model,exclusion_reason,round_count,split,round_count_total,round_count_valid
+astralis-vs-spirit_dust2,astralis-vs-spirit_dust2,astralis,spirit,de_dust2,14138,ESL Match Server #1,True,,13,train,13.0,13.0
+aurora-vs-furia_dust2,aurora-vs-furia_dust2,aurora,furia,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,30,test,30.0,30.0
+falcons-vs-furia_dust2,falcons-vs-furia_dust2,falcons,furia,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,29,train,29.0,29.0
+falcons-vs-natus-vincere_dust2,falcons-vs-natus-vincere_dust2,falcons,natus-vincere,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,22,val,22.0,22.0
+falcons-vs-nrg_dust2,falcons-vs-nrg_dust2,falcons,nrg,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,21,val,21.0,21.0
+falcons-vs-parivision_dust2,falcons-vs-parivision_dust2,falcons,parivision,de_dust2,14129,BLAST.tv Premier CS2 Server,True,,24,train,24.0,24.0
+faze-vs-aurora_dust2,faze-vs-aurora_dust2,faze,aurora,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,23,train,23.0,23.0
+fut-vs-furia_dust2,fut-vs-furia_dust2,fut,furia,de_dust2,14129,BLAST Bounty CS2 Server,True,,24,test,24.0,24.0
+gamerlegion-vs-vitality_dust2,gamerlegion-vs-vitality_dust2,gamerlegion,vitality,de_dust2,14129,BLAST.tv Premier CS2 Server,True,,24,test,24.0,24.0
+heroic-vs-furia_dust2,heroic-vs-furia_dust2,heroic,furia,de_dust2,14129,BLAST.tv Premier CS2 Server,True,,15,train,15.0,15.0
+inner-circle-vs-spirit_dust2,inner-circle-vs-spirit_dust2,inner-circle,spirit,de_dust2,14129,BLAST Bounty CS2 Server,True,,18,train,18.0,18.0
+legacy-vs-aurora_dust2,legacy-vs-aurora_dust2,legacy,aurora,de_inferno,14138,ESL Match Server #1,False,non_dust2_map,19,,,
+liquid-vs-falcons_dust2,liquid-vs-falcons_dust2,liquid,falcons,de_dust2,14129,BLAST.tv Premier CS2 Server,True,,21,train,21.0,21.0
+monte-vs-natus-vincere_dust2,monte-vs-natus-vincere_dust2,monte,natus-vincere,de_dust2,14129,BLAST Bounty CS2 Server,True,,21,train,21.0,21.0
+mouz-vs-9z_dust2,mouz-vs-9z_dust2,mouz,9z,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,24,train,24.0,24.0
+mouz-vs-fut_dust2,mouz-vs-fut_dust2,mouz,fut,de_dust2,14138,ESL Match Server #1,True,,24,train,24.0,24.0
+mouz-vs-heroic_dust2,mouz-vs-heroic_dust2,mouz,heroic,de_dust2,14138,Counter-Strike 2,True,,22,train,22.0,22.0
+natus-vincere-vs-3dmax_dust2,natus-vincere-vs-3dmax_dust2,natus-vincere,3dmax,de_dust2,14138,Counter-Strike 2,True,,18,train,18.0,18.0
+natus-vincere-vs-aurora_dust2,natus-vincere-vs-aurora_dust2,natus-vincere,aurora,de_dust2,14138,ESL Match Server #1,True,,22,train,22.0,22.0
+natus-vincere-vs-b8_dust2,natus-vincere-vs-b8_dust2,natus-vincere,b8,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,20,train,20.0,20.0
+natus-vincere-vs-g2_dust2,natus-vincere-vs-g2_dust2,natus-vincere,g2,de_dust2,14138,Counter-Strike 2,True,,20,train,20.0,20.0
+natus-vincere-vs-legacy_dust2,natus-vincere-vs-legacy_dust2,natus-vincere,legacy,de_dust2,14138,Counter-Strike 2,True,,17,train,17.0,17.0
+natus-vincere-vs-monte_dust2,natus-vincere-vs-monte_dust2,natus-vincere,monte,de_dust2,14138,Counter-Strike 2,True,,17,val,17.0,17.0
+navi-vs-aurora_dust2,navi-vs-aurora_dust2,navi,aurora,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,19,train,19.0,19.0
+nrg-vs-furia_dust2,nrg-vs-furia_dust2,nrg,furia,de_dust2,14140,BLAST.tv Premier CS2 Server,True,,20,test,20.0,19.0
+parivision-vs-astralis_dust2,parivision-vs-astralis_dust2,parivision,astralis,de_dust2,14129,BLAST Bounty CS2 Server,True,,14,train,14.0,14.0
+parivision-vs-heroic_dust2,parivision-vs-heroic_dust2,parivision,heroic,de_dust2,14138,Counter-Strike 2,True,,19,train,19.0,19.0
+parivision-vs-legacy_dust2,parivision-vs-legacy_dust2,parivision,legacy,de_dust2,14137,Counter-Strike 2,True,,23,train,23.0,23.0
+parivision-vs-monte_dust2,parivision-vs-monte_dust2,parivision,monte,de_dust2,14137,Counter-Strike 2,True,,34,train,34.0,34.0
+parivision-vs-pain_dust2,parivision-vs-pain_dust2,parivision,pain,de_dust2,14137,Counter-Strike 2,True,,24,val,24.0,24.0
+parivision-vs-semperfi_dust2,parivision-vs-semperfi_dust2,parivision,semperfi,de_dust2,14137,Counter-Strike 2,True,,24,train,24.0,24.0
+the-mongolz-vs-3dmax_dust2,the-mongolz-vs-3dmax_dust2,the-mongolz,3dmax,de_dust2,14138,Counter-Strike 2,True,,11,val,11.0,11.0
+the-mongolz-vs-aurora_dust2,the-mongolz-vs-aurora_dust2,the-mongolz,aurora,de_dust2,14138,Counter-Strike 2,True,,22,train,22.0,22.0
+virtus-pro-vs-vitality_dust2,virtus-pro-vs-vitality_dust2,virtus-pro,vitality,de_dust2,14129,BLAST Bounty CS2 Server,True,,19,test,19.0,19.0

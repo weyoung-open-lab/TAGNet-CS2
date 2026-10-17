@@ -1,0 +1,35 @@
+match_id,include_in_model,exclusion_reason,split,round_count_total,round_count_valid,map_name,patch_version,server_name
+astralis-vs-spirit_dust2,True,,train,13.0,13.0,de_dust2,14138,ESL Match Server #1
+aurora-vs-furia_dust2,True,,test,30.0,30.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+falcons-vs-furia_dust2,True,,train,29.0,29.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+falcons-vs-natus-vincere_dust2,True,,val,22.0,22.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+falcons-vs-nrg_dust2,True,,val,21.0,21.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+falcons-vs-parivision_dust2,True,,train,24.0,24.0,de_dust2,14129,BLAST.tv Premier CS2 Server
+faze-vs-aurora_dust2,True,,train,23.0,23.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+fut-vs-furia_dust2,True,,test,24.0,24.0,de_dust2,14129,BLAST Bounty CS2 Server
+gamerlegion-vs-vitality_dust2,True,,test,24.0,24.0,de_dust2,14129,BLAST.tv Premier CS2 Server
+heroic-vs-furia_dust2,True,,train,15.0,15.0,de_dust2,14129,BLAST.tv Premier CS2 Server
+inner-circle-vs-spirit_dust2,True,,train,18.0,18.0,de_dust2,14129,BLAST Bounty CS2 Server
+legacy-vs-aurora_dust2,False,non_dust2_map,,,,de_inferno,14138,ESL Match Server #1
+liquid-vs-falcons_dust2,True,,train,21.0,21.0,de_dust2,14129,BLAST.tv Premier CS2 Server
+monte-vs-natus-vincere_dust2,True,,train,21.0,21.0,de_dust2,14129,BLAST Bounty CS2 Server
+mouz-vs-9z_dust2,True,,train,24.0,24.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+mouz-vs-fut_dust2,True,,train,24.0,24.0,de_dust2,14138,ESL Match Server #1
+mouz-vs-heroic_dust2,True,,train,22.0,22.0,de_dust2,14138,Counter-Strike 2
+natus-vincere-vs-3dmax_dust2,True,,train,18.0,18.0,de_dust2,14138,Counter-Strike 2
+natus-vincere-vs-aurora_dust2,True,,train,22.0,22.0,de_dust2,14138,ESL Match Server #1
+natus-vincere-vs-b8_dust2,True,,train,20.0,20.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+natus-vincere-vs-g2_dust2,True,,train,20.0,20.0,de_dust2,14138,Counter-Strike 2
+natus-vincere-vs-legacy_dust2,True,,train,17.0,17.0,de_dust2,14138,Counter-Strike 2
+natus-vincere-vs-monte_dust2,True,,val,17.0,17.0,de_dust2,14138,Counter-Strike 2
+navi-vs-aurora_dust2,True,,train,19.0,19.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+nrg-vs-furia_dust2,True,,test,20.0,19.0,de_dust2,14140,BLAST.tv Premier CS2 Server
+parivision-vs-astralis_dust2,True,,train,14.0,14.0,de_dust2,14129,BLAST Bounty CS2 Server
+parivision-vs-heroic_dust2,True,,train,19.0,19.0,de_dust2,14138,Counter-Strike 2
+parivision-vs-legacy_dust2,True,,train,23.0,23.0,de_dust2,14137,Counter-Strike 2
+parivision-vs-monte_dust2,True,,train,34.0,34.0,de_dust2,14137,Counter-Strike 2
+parivision-vs-pain_dust2,True,,val,24.0,24.0,de_dust2,14137,Counter-Strike 2
+parivision-vs-semperfi_dust2,True,,train,24.0,24.0,de_dust2,14137,Counter-Strike 2
+the-mongolz-vs-3dmax_dust2,True,,val,11.0,11.0,de_dust2,14138,Counter-Strike 2
+the-mongolz-vs-aurora_dust2,True,,train,22.0,22.0,de_dust2,14138,Counter-Strike 2
+virtus-pro-vs-vitality_dust2,True,,test,19.0,19.0,de_dust2,14129,BLAST Bounty CS2 Server

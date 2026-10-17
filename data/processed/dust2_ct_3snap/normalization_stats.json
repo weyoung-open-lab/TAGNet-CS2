@@ -1,0 +1,51 @@
+{
+  "tick_rate": 64,
+  "snapshot_seconds": [
+    10,
+    15,
+    20
+  ],
+  "node_health": {
+    "method": "min_max_fixed",
+    "min": 0.0,
+    "max": 100.0
+  },
+  "node_equip": {
+    "method": "log1p_then_min_max_train_only",
+    "log_min_train": 5.303304908059076,
+    "log_max_train": 9.005895898094458
+  },
+  "team_total_equip": {
+    "method": "log1p_then_min_max_train_only",
+    "log_min_train": 6.90875477931522,
+    "log_max_train": 10.407318772389159
+  },
+  "edge_distance_xy": {
+    "method": "min_max_train_only",
+    "min_train": 0.0,
+    "max_train": 4094.914748162217
+  },
+  "place_vocab_size": 20,
+  "place_vocab": [
+    "ARamp",
+    "BombsiteA",
+    "Catwalk",
+    "ExtendedA",
+    "LongA",
+    "LongDoors",
+    "Pit",
+    "ShortStairs",
+    "UnderA",
+    "BDoors",
+    "BombsiteB",
+    "LowerTunnel",
+    "TunnelStairs",
+    "UpperTunnel",
+    "Hole",
+    "MidDoors",
+    "Middle",
+    "TopMid",
+    "CTSpawn",
+    "Side"
+  ]
+}

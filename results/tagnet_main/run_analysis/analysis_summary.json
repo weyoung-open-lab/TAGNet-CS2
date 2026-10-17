@@ -1,0 +1,21 @@
+{
+  "source_run_dir": "/Users/zhangx1ang/Desktop/TAGNet-CS2/results/tagnet_main/run",
+  "reference_best_k_from_training": 8,
+  "recommended_k_from_multi_metric_analysis": 6,
+  "recommended_k_in_word_expected_range_5_to_8": 6,
+  "recommended_k_avg_rank": 4.333333333333333,
+  "best_k_silhouette": 0.1835475176413276,
+  "best_k_davies_bouldin": 1.7458317867030908,
+  "best_k_calinski_harabasz": 116.08952076071766,
+  "team_fingerprint_count": 28,
+  "resolved_team_fingerprint_count_ge10_rounds": 26,
+  "folder_name_mismatch_count": 2,
+  "score_shift_team_count": 9,
+  "opponent_shift_team_count": 17,
+  "h2_team_pair_count": 22,
+  "h2_significant_cluster_count_p_lt_0_05": 1,
+  "h3_significant_team_count_p_lt_0_05": 1,
+  "h3_skipped_team_count": 0,
+  "tactical_consistency_cluster_count": 6,
+  "naming_heuristic_cluster_count": 6
+}

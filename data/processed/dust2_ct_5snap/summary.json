@@ -1,0 +1,15 @@
+{
+  "included_match_count": 33,
+  "excluded_match_count": 1,
+  "prepared_round_samples": 697,
+  "prepared_node_rows": 17425,
+  "prepared_edge_rows": 34850,
+  "prepared_context_rows": 3485,
+  "snapshot_seconds": [
+    10,
+    12,
+    15,
+    18,
+    20
+  ]
+}

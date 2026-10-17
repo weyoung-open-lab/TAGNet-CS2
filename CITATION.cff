@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2"
+type: software
+license: MIT
+authors:
+  - family-names: Zhang
+    given-names: Xiang
+    affiliation: "Faculty of Control Systems and Robotics, ITMO University"
+  - family-names: Zhang
+    given-names: RongQi
+    affiliation: "Institute of Philology and Intercultural Communication, Kazan Federal University"
+  - family-names: Chen
+    given-names: Guancheng
+    affiliation: "University of Toronto Mississauga"
+  - family-names: Cao
+    given-names: Xinlei
+    affiliation: "College of Furnishings and Industrial Design, Nanjing Forestry University"
+  - family-names: Yue
+    given-names: ChaoFan
+    affiliation: "Faculty of Control Systems and Robotics, ITMO University"
+  - family-names: Yuan
+    given-names: Chunhong
+    affiliation: "Faculty of Control Systems and Robotics, ITMO University"
+preferred-citation:
+  type: article
+  title: "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2"
+  journal: "IEEE Transactions on Games"
+  year: 2026
+  notes: "Accepted for publication; volume, pages and DOI to be added."
+  authors:
+    - family-names: Zhang
+      given-names: Xiang
+    - family-names: Zhang
+      given-names: RongQi
+    - family-names: Chen
+      given-names: Guancheng
+    - family-names: Cao
+      given-names: Xinlei
+    - family-names: Yue
+      given-names: ChaoFan
+    - family-names: Yuan
+      given-names: Chunhong

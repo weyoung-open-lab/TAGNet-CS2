@@ -1,0 +1,29 @@
+﻿team_key,display_name,best_name,best_count,second_count,match_count,confidence,resolved,candidate_names,resolution_method
+team_0445d85984a4,fut,fut,4,2,2,2.0,True,fut:4 | furia:2 | mouz:2,vote
+team_0ac8ac222de3,legacy,legacy,4,2,2,2.0,True,legacy:4 | natus-vincere:2 | parivision:2,vote
+team_114ad0fb00ab,inner-circle,inner-circle,2,2,1,2.0,True,inner-circle:2 | spirit:2,folder_constraint:inner-circle-vs-spirit_dust2
+team_28ddfbbe505c,aurora,aurora,8,2,4,2.0,True,aurora:8 | faze:2 | furia:2 | natus-vincere:2 | the-mongolz:2,vote
+team_2cafdd88a2b3,nrg,nrg,4,2,2,2.0,True,nrg:4 | falcons:2 | furia:2,vote
+team_2e4e9fb62afd,the-mongolz,the-mongolz,3,2,2,1.5,True,the-mongolz:3 | aurora:2 | 3dmax:1,vote
+team_32ca7afd3148,vitality,vitality,4,2,2,2.0,True,vitality:4 | gamerlegion:2 | virtus-pro:2,vote
+team_4208b53405c7,semperfi,parivision,2,2,1,2.0,True,parivision:2 | semperfi:2,folder_constraint:parivision-vs-semperfi_dust2
+team_5f41706eee17,natus-vincere,natus-vincere,16,4,8,2.0,True,natus-vincere:16 | monte:4 | 3dmax:2 | aurora:2 | b8:2 | falcons:2 | g2:2 | legacy:2,vote
+team_61eb6d2a16cc,mouz,mouz,6,2,3,2.0,True,mouz:6 | 9z:2 | fut:2 | heroic:2,vote
+team_673aa049ddc8,parivision,parivision,14,2,7,2.0,True,parivision:14 | astralis:2 | falcons:2 | heroic:2 | legacy:2 | monte:2 | pain:2 | semperfi:2,vote
+team_7e72ea96dd75,furia,furia,10,2,5,2.0,True,furia:10 | aurora:2 | falcons:2 | fut:2 | heroic:2 | nrg:2,vote
+team_817b368569c3,liquid,falcons,2,2,1,2.0,True,falcons:2 | liquid:2,folder_constraint:liquid-vs-falcons_dust2
+team_81b04f45f227,3dmax,3dmax,3,2,2,1.5,True,3dmax:3 | natus-vincere:2 | the-mongolz:1,vote
+team_8cfda985b903,heroic,heroic,4,2,2,2.0,True,heroic:4 | mouz:2 | parivision:2,vote
+team_93e508613892,monte,monte,6,4,3,2.0,True,monte:6 | natus-vincere:4 | parivision:2,vote
+team_96dd8d961dbd,virtus-pro,virtus-pro,2,2,1,2.0,True,virtus-pro:2 | vitality:2,folder_constraint:virtus-pro-vs-vitality_dust2
+team_9e4ba69e24d5,gamerlegion,gamerlegion,2,2,1,2.0,True,gamerlegion:2 | vitality:2,folder_constraint:gamerlegion-vs-vitality_dust2
+team_ab866f0ad3c4,9z,9z,2,2,2,1.0,True,9z:2 | aurora:2 | mouz:2 | natus-vincere:2,folder_constraint:mouz-vs-9z_dust2
+team_bf826d8a8c60,heroic,furia,2,2,1,2.0,True,furia:2 | heroic:2,folder_constraint:heroic-vs-furia_dust2
+team_c02184ca70de,astralis,astralis,4,2,2,2.0,True,astralis:4 | parivision:2 | spirit:2,vote
+team_c6e3c1179741,spirit,spirit,4,2,3,1.3333333333333333,True,spirit:4 | astralis:2 | aurora:2 | inner-circle:2 | natus-vincere:2,vote
+team_d93df922b362,pain,pain,2,2,1,2.0,True,pain:2 | parivision:2,folder_constraint:parivision-vs-pain_dust2
+team_daac37be59d4,faze,aurora,2,2,1,2.0,True,aurora:2 | faze:2,folder_constraint:faze-vs-aurora_dust2
+team_decca57bd08a,falcons,falcons,6,2,3,2.0,True,falcons:6 | liquid:2 | nrg:2 | parivision:2,vote
+team_f61efebe61e4,g2,g2,2,2,1,2.0,True,g2:2 | natus-vincere:2,folder_constraint:natus-vincere-vs-g2_dust2
+team_f7cd3b9ae428,b8,b8,2,2,1,2.0,True,b8:2 | natus-vincere:2,folder_constraint:natus-vincere-vs-b8_dust2
+team_fb66b63dfb7b,falcons,falcons,4,2,2,2.0,True,falcons:4 | furia:2 | natus-vincere:2,vote
