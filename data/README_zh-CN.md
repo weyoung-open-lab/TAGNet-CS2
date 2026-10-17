@@ -9,7 +9,7 @@
 | `match_list.csv` | 34 个已解析的 Dust2 比赛文件夹：是否使用、排除原因、所属划分、回合数、demo 版本号和服务器。实际使用 33 场；`legacy-vs-aurora_dust2` 因 demo 头信息显示地图不是 `de_dust2` 而被排除。 |
 | `processed/dust2_ct_5snap/` | TAGNet 和全部补充实验使用的数据集（快照时刻 10/12/15/18/20 秒）。 |
 | `processed/dust2_ct_3snap/` | 同样的 697 个回合，快照时刻为 10/15/20 秒，只用于表 III 的两层基线。 |
-| `map/dust2_walkable_mask.npz` | 图 4 的底图：16 单位网格上的 Dust2 可行走区域，由 `scripts/build_map_mask.py` 根据三场已解析比赛中约 500 万个选手位置估计得到。 |
+| `map/dust2_walkable_mask.npz` | 图 3 的底图：16 单位网格上的 Dust2 可行走区域，由 `scripts/build_map_mask.py` 根据三场已解析比赛中约 500 万个选手位置估计得到。 |
 | `parsed/` | 未包含。这是 `scripts/parse_demos.py` 的输出位置，每场比赛一个文件夹，存放 Awpy 解析出的原始数据表。 |
 
 原始 `.dem` 文件不在仓库中重新分发。数据集来自 [HLTV](https://www.hltv.org/) 上公开的职业比赛 demo，比赛列表见 `match_list.csv`（文件夹名格式为 `<队伍A>-vs-<队伍B>_dust2`）。用 `scripts/parse_demos.py` 解析 demo、再用 `scripts/prepare_data.py` 转换，即可按论文中相同的流程得到数据集。

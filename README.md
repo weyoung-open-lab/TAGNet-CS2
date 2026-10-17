@@ -32,7 +32,7 @@ TAGNet represents the five CT players of a professional CS2 round on Dust2 as a 
 ## Six defensive patterns
 
 <p align="center">
-  <img src="docs/figures/fig4_cluster_heatmaps.png" width="85%" alt="CT positioning heatmaps of the six clusters at 15 s">
+  <img src="docs/figures/fig3_cluster_heatmaps.png" width="85%" alt="CT positioning heatmaps of the six clusters at 15 s">
 </p>
 
 | Cluster | Pattern | Rounds | A / B share at 15 s | CT round win rate |
@@ -46,18 +46,18 @@ TAGNet represents the five CT players of a professional CS2 round on Dust2 as a 
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/figures/fig5_tsne.png" alt="t-SNE of round embeddings"></td>
-    <td width="50%"><img src="docs/figures/fig6_area_over_time.png" alt="Area occupancy over time"></td>
+    <td width="50%"><img src="docs/figures/fig4_tsne.png" alt="t-SNE of round embeddings"></td>
+    <td width="50%"><img src="docs/figures/fig5_area_over_time.png" alt="Area occupancy over time"></td>
   </tr>
   <tr>
-    <td align="center"><em>t-SNE of the 697 round embeddings (Fig. 5)</em></td>
-    <td align="center"><em>How each pattern evolves between 10 and 20 s (Fig. 6)</em></td>
+    <td align="center"><em>t-SNE of the 697 round embeddings (Fig. 4)</em></td>
+    <td align="center"><em>How each pattern evolves between 10 and 20 s (Fig. 5)</em></td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="docs/figures/fig7_team_style.png" width="100%" alt="Team fingerprints and style similarity">
-  <br><em>Team tactical fingerprints and style similarity (Fig. 7)</em>
+  <img src="docs/figures/fig6_team_style.png" width="100%" alt="Team fingerprints and style similarity">
+  <br><em>Team tactical fingerprints and style similarity (Fig. 6)</em>
 </p>
 
 All figures are taken from the paper and can be regenerated with the scripts below.
@@ -75,9 +75,9 @@ TAGNet-CS2/
 │   ├── analyze_results.py       K selection, clustering, statistics, t-SNE
 │   ├── visualize_results.py     figures from the analysis outputs
 │   ├── extract_attention.py     attention matrices of the trained encoder
-│   ├── team_fingerprints_by_name.py   team fingerprints / similarity (Fig. 7)
+│   ├── team_fingerprints_by_name.py   team fingerprints / similarity (Fig. 6)
 │   ├── ablation_table.py        ablation table (Table VI)
-│   ├── make_paper_figures.py    published versions of Figs. 3 and 5-11
+│   ├── make_paper_figures.py    published versions of Figs. 3-9
 │   ├── search_architecture.py   architecture search over GAT/GRU sizes
 │   └── compare_clusterers.py    K-Means vs. other clusterers on the embeddings
 ├── supplementary/               Robustness checks of Section IV-K
@@ -153,22 +153,22 @@ Without arguments, the analysis scripts read the reference run in `results/tagne
 | Paper | Command | Output |
 |---|---|---|
 | Table I | `prepare_data.py` | `data/processed/dust2_ct_5snap/summary.json`, `splits.json` |
-| Table III, Fig. 3 (TAGNet) | `train_tagnet.py --gat-layers 3` | `run_summary.json`, `training_history.csv` |
-| Table III, Fig. 3 (baseline) | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | same files; see note 1 below |
+| Table III (TAGNet) | `train_tagnet.py --gat-layers 3` | `run_summary.json`, `training_history.csv` |
+| Table III (baseline) | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | same files; see note 1 below |
 | Table IV | `analyze_results.py` | `k_selection_metrics.csv`, `figures/fig_k_selection.*` |
-| Fig. 4 | `make_paper_figures.py` (base map from `build_map_mask.py`) | `paper_figures/fig4_cluster_heatmaps.*` |
-| Fig. 5 | `analyze_results.py`, `visualize_results.py` | `tsne_coordinates.parquet`, `figures/fig_tsne_clusters.*` |
-| Fig. 6 | `analyze_results.py`, `visualize_results.py` | `cluster_profiles.csv`, `figures/fig_cluster_area_over_time.*` |
-| Fig. 7(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
-| Fig. 7(b) | `team_fingerprints_by_name.py` | `team_style_similarity_by_name_pairs.csv` (similarity = 1 − cosine distance) |
-| Table V, Fig. 8(a) | `analyze_results.py` | `context_trigger_tests.csv` |
-| Fig. 9 | `analyze_results.py` | `h2_score_state_paired_ttest.csv`, `h2_score_state_team_pairs.csv` |
-| Table VI, Fig. 10 | `train_tagnet.py` with `--no-context`, `--no-graph`, `--single-snapshot 15`; then `ablation_table.py` | `results/ablations/ablation_table.csv` |
-| Table VII, Fig. 11(a) | `supplementary/rule_baseline.py` | `baseline_metrics.json`, `final_area_config_counts.csv` |
-| Table VIII, Fig. 11(b) | `supplementary/run_supplement_suite.py`, then `summarize_supplement.py` | `original_protocol_summary.csv` |
-| Table IX, Fig. 8(b), Holm column of Table V | `supplementary/holm_correction.py` | `holm_summary.csv` and the corrected test tables |
+| Fig. 3 | `make_paper_figures.py` (base map from `build_map_mask.py`) | `paper_figures/fig3_cluster_heatmaps.*` |
+| Fig. 4 | `analyze_results.py`, `visualize_results.py` | `tsne_coordinates.parquet`, `figures/fig_tsne_clusters.*` |
+| Fig. 5 | `analyze_results.py`, `visualize_results.py` | `cluster_profiles.csv`, `figures/fig_cluster_area_over_time.*` |
+| Fig. 6(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
+| Fig. 6(b) | `team_fingerprints_by_name.py` | `team_style_similarity_by_name_pairs.csv` (similarity = 1 − cosine distance) |
+| Table V, Fig. 7(a) | `analyze_results.py` | `context_trigger_tests.csv` |
+| Fig. 8 | `analyze_results.py` | `h2_score_state_paired_ttest.csv`, `h2_score_state_team_pairs.csv` |
+| Table VI | `train_tagnet.py` with `--no-context`, `--no-graph`, `--single-snapshot 15`; then `ablation_table.py` | `results/ablations/ablation_table.csv` |
+| Table VII, Fig. 9(a) | `supplementary/rule_baseline.py` | `baseline_metrics.json`, `final_area_config_counts.csv` |
+| Table VIII, Fig. 9(b) | `supplementary/run_supplement_suite.py`, then `summarize_supplement.py` | `original_protocol_summary.csv` |
+| Table IX, Fig. 7(b), Holm column of Table V | `supplementary/holm_correction.py` | `holm_summary.csv` and the corrected test tables |
 
-`scripts/make_paper_figures.py` draws the published versions of Figs. 3–11 from the files in `results/` (vector PDF and 600 dpi PNG, sized for the IEEE layout) into `results/paper_figures/`. Figs. 1 and 2 are diagrams. The grey base map of Fig. 4 is the Dust2 walkable area estimated from player positions in parsed demos (`data/map/dust2_walkable_mask.npz`, built by `scripts/build_map_mask.py`), so no game asset is redistributed.
+`scripts/make_paper_figures.py` draws the published versions of Figs. 3–9, plus the training curves, K-selection curves and ablation radar chart, from the files in `results/` (vector PDF and 600 dpi PNG, sized for the IEEE layout) into `results/paper_figures/`. Figs. 1 and 2 are diagrams. The grey base map of Fig. 3 is the Dust2 walkable area estimated from player positions in parsed demos (`data/map/dust2_walkable_mask.npz`, built by `scripts/build_map_mask.py`), so no game asset is redistributed.
 
 Full commands for the supplementary experiments:
 
@@ -219,11 +219,11 @@ python supplementary/holm_correction.py --analysis-dir results/tagnet_main/run_a
 | `supplementary/{summary,rule_baseline,holm}` | Tables VII–IX |
 
 <p align="center">
-  <img src="docs/figures/fig11_supplementary.png" width="85%" alt="Supplementary variants">
-  <br><em>Test loss and cross-seed agreement of the supplementary checks (Fig. 11)</em>
+  <img src="docs/figures/fig9_supplementary.png" width="85%" alt="Supplementary variants">
+  <br><em>Test loss and cross-seed agreement of the supplementary checks (Fig. 9)</em>
 </p>
 
-All analysis outputs in `results/` were regenerated with the code in this repository from the stored checkpoints and embeddings, and agree with the outputs used for the paper: all statistical and clustering tables to within 1e-11, and the attention matrices (recomputed on CPU from the GPU checkpoint) to within 1e-6. The exception is the t-SNE coordinates, which depend on the scikit-learn version. The layout shown in Fig. 5 is kept in `tagnet_main/run_analysis/tsne_coordinates_paper_fig6.parquet`.
+All analysis outputs in `results/` were regenerated with the code in this repository from the stored checkpoints and embeddings, and agree with the outputs used for the paper: all statistical and clustering tables to within 1e-11, and the attention matrices (recomputed on CPU from the GPU checkpoint) to within 1e-6. The exception is the t-SNE coordinates, which depend on the scikit-learn version. The layout shown in Fig. 4 is kept in `tagnet_main/run_analysis/tsne_coordinates_paper_fig6.parquet`.
 
 Retraining from scratch on CPU gives:
 

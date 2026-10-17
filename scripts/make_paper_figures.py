@@ -1,19 +1,20 @@
 """Draw the data figures of the paper from the files in results/.
 
-Output (vector PDF and 600 dpi PNG, named by figure number in the paper):
+Output (vector PDF and 600 dpi PNG). Figures of the paper are named by their
+number; the other files are extra views of results reported in the tables:
 
-    fig3_convergence        training curves of the baseline and TAGNet
-    k_selection_curves      K-selection curves (numbers in Table IV)
-    fig4_cluster_heatmaps   CT positions of each cluster at 15 s on the Dust2 base map
-    fig5_tsne               t-SNE of the round embeddings
-    fig6_area_over_time     area occupancy of each cluster over time
-    fig7_team_style         (a) team fingerprints, (b) team style similarity
-    fig8_context_tests      (a) significance and effect size, (b) raw vs. Holm p
-    fig9_score_state        leading vs. trailing usage of each cluster
-    fig10_ablation_radar    ablation radar chart
-    fig11_supplementary     (a) rule-based baseline, (b) supplementary variants
+    fig3_cluster_heatmaps   CT positions of each cluster at 15 s on the Dust2 base map
+    fig4_tsne               t-SNE of the round embeddings
+    fig5_area_over_time     area occupancy of each cluster over time
+    fig6_team_style         (a) team fingerprints, (b) team style similarity
+    fig7_context_tests      (a) significance and effect size, (b) raw vs. Holm p
+    fig8_score_state        leading vs. trailing usage of each cluster
+    fig9_supplementary      (a) rule-based baseline, (b) supplementary variants
+    training_curves         training curves of the baseline and TAGNet (Table III)
+    k_selection_curves      K-selection curves (Table IV)
+    ablation_radar          ablation radar chart (Table VI)
 
-Figs. 1 and 2 are diagrams. The base map of Fig. 4 is built by build_map_mask.py.
+Figs. 1 and 2 are diagrams. The base map of Fig. 3 is built by build_map_mask.py.
 """
 from __future__ import annotations
 
@@ -188,7 +189,7 @@ def team_fingerprints() -> pd.DataFrame:
     return fp.sort_values(["round_count", "ct_team_name"], ascending=[False, True]).reset_index(drop=True)
 
 
-# Fig. 3 ---------------------------------------------------------------------
+# Training curves -----------------------------------------------------------
 
 def draw_loss_curves(axes) -> None:
     runs = [
@@ -225,11 +226,11 @@ def draw_k_selection(axes) -> None:
     axes[0].annotate("K = 6", (6, 1.0), xycoords=("data", "axes fraction"), xytext=(2, -2), textcoords="offset points", ha="left", va="top", fontsize=6, color=ORANGE)
 
 
-def fig3_convergence(out_dir: Path) -> None:
+def training_curves(out_dir: Path) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(COLUMN, 1.6), sharey=True)
     draw_loss_curves(list(axes))
     fig.tight_layout(w_pad=0.6)
-    save(fig, out_dir, "fig3_convergence")
+    save(fig, out_dir, "training_curves")
 
 
 def fig_k_selection(out_dir: Path) -> None:
@@ -240,9 +241,9 @@ def fig_k_selection(out_dir: Path) -> None:
     save(fig, out_dir, "k_selection_curves")
 
 
-# Fig. 4 ---------------------------------------------------------------------
+# Fig. 3 --------------------------------------------------------------------
 
-def fig4_cluster_heatmaps(out_dir: Path) -> None:
+def fig3_cluster_heatmaps(out_dir: Path) -> None:
     from matplotlib import patheffects
     from matplotlib.colors import ListedColormap
     from scipy import ndimage
@@ -305,12 +306,12 @@ def fig4_cluster_heatmaps(out_dir: Path) -> None:
         )
         for name, (x, y) in places.items():
             ax.text(x, y, name, fontsize=5.0, color="#222222", ha="center", va="center", zorder=3, path_effects=halo)
-    save(fig, out_dir, "fig4_cluster_heatmaps")
+    save(fig, out_dir, "fig3_cluster_heatmaps")
 
 
-# Fig. 5 ---------------------------------------------------------------------
+# Fig. 4 --------------------------------------------------------------------
 
-def fig5_tsne(out_dir: Path) -> pd.DataFrame:
+def fig4_tsne(out_dir: Path) -> pd.DataFrame:
     tsne = pd.read_parquet(ANALYSIS / "tsne_coordinates_paper_fig6.parquet")
     markers = {"train": "o", "val": "s", "test": "^"}
     fig, ax = plt.subplots(figsize=(COLUMN, 2.65))
@@ -337,7 +338,7 @@ def fig5_tsne(out_dir: Path) -> pd.DataFrame:
     ax.grid(False)
     fig.subplots_adjust(left=0.13, right=0.98, top=0.98, bottom=0.32)
     fig.legend(handles=cluster_handles, loc="lower center", bbox_to_anchor=(0.55, 0.0), ncol=2, columnspacing=1.0)
-    save(fig, out_dir, "fig5_tsne")
+    save(fig, out_dir, "fig4_tsne")
     return tsne
 
 
@@ -355,7 +356,7 @@ def tsne_inset(tsne: pd.DataFrame, out_dir: Path) -> None:
     plt.close(fig)
 
 
-# Fig. 6 ---------------------------------------------------------------------
+# Fig. 5 --------------------------------------------------------------------
 
 def parse_area_distribution(text: str) -> dict[str, float]:
     values = {}
@@ -365,7 +366,7 @@ def parse_area_distribution(text: str) -> dict[str, float]:
     return values
 
 
-def fig6_area_over_time(out_dir: Path) -> None:
+def fig5_area_over_time(out_dir: Path) -> None:
     profiles = read_csv(ANALYSIS / "cluster_profiles.csv")
     styles = {
         "A": ("A site", RED, "-"),
@@ -389,10 +390,10 @@ def fig6_area_over_time(out_dir: Path) -> None:
     handles = [Line2D([0], [0], color=c, linestyle=ls, marker="o", markersize=2, label=l) for l, c, ls in styles.values()]
     fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.04), ncol=4)
     fig.tight_layout(h_pad=0.5, w_pad=0.3)
-    save(fig, out_dir, "fig6_area_over_time")
+    save(fig, out_dir, "fig5_area_over_time")
 
 
-# Fig. 7 ---------------------------------------------------------------------
+# Fig. 6 --------------------------------------------------------------------
 
 def draw_team_heatmap(fig: plt.Figure, ax) -> None:
     fp = team_fingerprints().head(15)
@@ -441,17 +442,17 @@ def draw_team_similarity(fig: plt.Figure, ax) -> None:
     bar.outline.set_linewidth(0.5)
 
 
-def fig7_team_style(out_dir: Path) -> None:
+def fig6_team_style(out_dir: Path) -> None:
     fig = plt.figure(figsize=(PAGE, 2.75))
     grid = fig.add_gridspec(1, 2, width_ratios=[1, 1.08], left=0.11, right=0.97, top=0.97, bottom=0.17, wspace=0.42)
     draw_team_heatmap(fig, fig.add_subplot(grid[0, 0]))
     draw_team_similarity(fig, fig.add_subplot(grid[0, 1]))
     panel_label(fig, 0.0, 1.0, "(a)")
     panel_label(fig, 0.5, 1.0, "(b)")
-    save(fig, out_dir, "fig7_team_style")
+    save(fig, out_dir, "fig6_team_style")
 
 
-# Fig. 8 ---------------------------------------------------------------------
+# Fig. 7 --------------------------------------------------------------------
 
 def draw_significance(ax) -> None:
     tests = context_tests()
@@ -489,19 +490,19 @@ def draw_raw_vs_holm(ax) -> None:
     ax.grid(axis="x", visible=False)
 
 
-def fig8_context_tests(out_dir: Path) -> None:
+def fig7_context_tests(out_dir: Path) -> None:
     fig = plt.figure(figsize=(COLUMN, 3.0))
     grid = fig.add_gridspec(2, 1, left=0.13, right=0.99, top=0.97, bottom=0.08, hspace=0.75)
     draw_significance(fig.add_subplot(grid[0, 0]))
     draw_raw_vs_holm(fig.add_subplot(grid[1, 0]))
     panel_label(fig, 0.0, 1.0, "(a)")
     panel_label(fig, 0.0, 0.49, "(b)")
-    save(fig, out_dir, "fig8_context_tests")
+    save(fig, out_dir, "fig7_context_tests")
 
 
-# Fig. 9 ---------------------------------------------------------------------
+# Fig. 8 --------------------------------------------------------------------
 
-def fig9_score_state(out_dir: Path) -> None:
+def fig8_score_state(out_dir: Path) -> None:
     pairs = read_csv(ANALYSIS / "h2_score_state_team_pairs.csv")
     tests = read_csv(RESULTS / "supplementary" / "holm" / "h2_score_state_paired_ttest.csv").set_index("cluster_id")
     n = len(pairs)
@@ -529,10 +530,10 @@ def fig9_score_state(out_dir: Path) -> None:
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.13), ncol=2)
     ax.grid(axis="x", visible=False)
     fig.tight_layout()
-    save(fig, out_dir, "fig9_score_state")
+    save(fig, out_dir, "fig8_score_state")
 
 
-# Fig. 10 --------------------------------------------------------------------
+# Ablation radar ------------------------------------------------------------
 
 ABLATION_ROWS = {
     "TAGNet (full)": (0.0086, 0.1788, 1.7094, 104.67, 10.0),
@@ -542,7 +543,7 @@ ABLATION_ROWS = {
 }
 
 
-def fig10_ablation_radar(out_dir: Path) -> None:
+def ablation_radar(out_dir: Path) -> None:
     names = list(ABLATION_ROWS)
     loss, sc, dbi, ch, semantic = (np.array([ABLATION_ROWS[n][i] for n in names]) for i in range(5))
     scores = np.column_stack([10 * loss.min() / loss, 10 * sc / sc.max(), 10 * dbi.min() / dbi, 10 * ch / ch.max(), semantic])
@@ -564,10 +565,10 @@ def fig10_ablation_radar(out_dir: Path) -> None:
     ax.spines["polar"].set_linewidth(0.5)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=2, columnspacing=1.2)
     fig.tight_layout()
-    save(fig, out_dir, "fig10_ablation_radar")
+    save(fig, out_dir, "ablation_radar")
 
 
-# Fig. 11 --------------------------------------------------------------------
+# Fig. 9 --------------------------------------------------------------------
 
 def draw_rule_baseline(axes) -> None:
     metrics = json.loads((RESULTS / "supplementary" / "rule_baseline" / "baseline_metrics.json").read_text(encoding="utf-8"))
@@ -616,7 +617,7 @@ def draw_supplementary_variants(ax_loss, ax_ari) -> None:
         ax.grid(axis="x", visible=False)
 
 
-def fig11_supplementary(out_dir: Path) -> None:
+def fig9_supplementary(out_dir: Path) -> None:
     fig = plt.figure(figsize=(PAGE, 3.0))
     top = fig.add_gridspec(1, 4, left=0.05, right=0.99, top=0.93, bottom=0.63, wspace=0.32)
     bottom = fig.add_gridspec(1, 2, left=0.05, right=0.99, top=0.47, bottom=0.17, wspace=0.16)
@@ -624,7 +625,7 @@ def fig11_supplementary(out_dir: Path) -> None:
     draw_supplementary_variants(fig.add_subplot(bottom[0, 0]), fig.add_subplot(bottom[0, 1]))
     panel_label(fig, 0.0, 1.0, "(a)")
     panel_label(fig, 0.0, 0.535, "(b)")
-    save(fig, out_dir, "fig11_supplementary")
+    save(fig, out_dir, "fig9_supplementary")
 
 
 def main() -> None:
@@ -633,17 +634,17 @@ def main() -> None:
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     setup_style()
-    fig3_convergence(args.output_dir)
+    training_curves(args.output_dir)
     fig_k_selection(args.output_dir)
-    fig4_cluster_heatmaps(args.output_dir)
-    tsne = fig5_tsne(args.output_dir)
+    fig3_cluster_heatmaps(args.output_dir)
+    tsne = fig4_tsne(args.output_dir)
     tsne_inset(tsne, args.output_dir)
-    fig6_area_over_time(args.output_dir)
-    fig7_team_style(args.output_dir)
-    fig8_context_tests(args.output_dir)
-    fig9_score_state(args.output_dir)
-    fig10_ablation_radar(args.output_dir)
-    fig11_supplementary(args.output_dir)
+    fig5_area_over_time(args.output_dir)
+    fig6_team_style(args.output_dir)
+    fig7_context_tests(args.output_dir)
+    fig8_score_state(args.output_dir)
+    ablation_radar(args.output_dir)
+    fig9_supplementary(args.output_dir)
     print(f"Figures written to {args.output_dir}")
 
 

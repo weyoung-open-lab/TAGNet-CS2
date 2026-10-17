@@ -1,4 +1,4 @@
-"""Build the Dust2 base map used under the heatmaps of Fig. 4.
+"""Build the Dust2 base map used under the heatmaps of Fig. 3.
 
 The base map is the walkable area of de_dust2 estimated from player positions:
 the (X, Y) positions of all players at every tick of the given ``ticks.parquet``

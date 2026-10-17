@@ -4,7 +4,7 @@ The three test families are corrected separately, as pre-declared in the paper:
 
 * ``context``        - four chi-square tests of contextual variables vs. cluster
                        (``context_trigger_tests.csv``, Table V)
-* ``h2_score_state`` - six paired t-tests, leading vs. trailing (``h2_score_state_paired_ttest.csv``, Fig. 11)
+* ``h2_score_state`` - six paired t-tests, leading vs. trailing (``h2_score_state_paired_ttest.csv``, Fig. 8)
 * ``h3_opponent``    - per-team chi-square tests of cluster usage vs. opponent (``h3_opponent_chi_square.csv``)
 
 All three input files are written by ``scripts/analyze_results.py``.

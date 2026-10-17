@@ -32,7 +32,7 @@ TAGNet 把职业 CS2 比赛中 Dust2 地图上每个回合的 5 名 CT 选手，
 ## 六类防守模式
 
 <p align="center">
-  <img src="docs/figures/fig4_cluster_heatmaps.png" width="85%" alt="六类防守模式在 15 秒时的 CT 站位热力图">
+  <img src="docs/figures/fig3_cluster_heatmaps.png" width="85%" alt="六类防守模式在 15 秒时的 CT 站位热力图">
 </p>
 
 | 簇 | 模式 | 回合数 | 15 秒时 A / B 占比 | CT 回合胜率 |
@@ -46,18 +46,18 @@ TAGNet 把职业 CS2 比赛中 Dust2 地图上每个回合的 5 名 CT 选手，
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/figures/fig5_tsne.png" alt="回合向量的 t-SNE"></td>
-    <td width="50%"><img src="docs/figures/fig6_area_over_time.png" alt="各区域占比随时间的变化"></td>
+    <td width="50%"><img src="docs/figures/fig4_tsne.png" alt="回合向量的 t-SNE"></td>
+    <td width="50%"><img src="docs/figures/fig5_area_over_time.png" alt="各区域占比随时间的变化"></td>
   </tr>
   <tr>
-    <td align="center"><em>697 个回合向量的 t-SNE（图 5）</em></td>
-    <td align="center"><em>各类模式在 10–20 秒之间的演变（图 6）</em></td>
+    <td align="center"><em>697 个回合向量的 t-SNE（图 4）</em></td>
+    <td align="center"><em>各类模式在 10–20 秒之间的演变（图 5）</em></td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="docs/figures/fig7_team_style.png" width="100%" alt="队伍战术指纹与风格相似度">
-  <br><em>队伍战术指纹与风格相似度（图 7）</em>
+  <img src="docs/figures/fig6_team_style.png" width="100%" alt="队伍战术指纹与风格相似度">
+  <br><em>队伍战术指纹与风格相似度（图 6）</em>
 </p>
 
 以上图片均来自论文，可以用下文的脚本重新生成。
@@ -75,9 +75,9 @@ TAGNet-CS2/
 │   ├── analyze_results.py       选 K、聚类、统计检验、t-SNE
 │   ├── visualize_results.py     根据分析结果画图
 │   ├── extract_attention.py     提取训练好的编码器的注意力矩阵
-│   ├── team_fingerprints_by_name.py   队伍战术指纹与相似度（图 7）
+│   ├── team_fingerprints_by_name.py   队伍战术指纹与相似度（图 6）
 │   ├── ablation_table.py        消融实验表（表 VI）
-│   ├── make_paper_figures.py    绘制论文中图 3、5–11 的正式版本
+│   ├── make_paper_figures.py    绘制论文中图 3–9 的正式版本
 │   ├── search_architecture.py   GAT/GRU 规模的结构搜索
 │   └── compare_clusterers.py    在回合向量上比较 K-Means 和其他聚类方法
 ├── supplementary/               IV-K 节的稳健性检验
@@ -158,22 +158,22 @@ python scripts/team_fingerprints_by_name.py --analysis-dir runs/tagnet_analysis
 | 论文 | 命令 | 输出 |
 |---|---|---|
 | 表 I | `prepare_data.py` | `data/processed/dust2_ct_5snap/summary.json`、`splits.json` |
-| 表 III、图 3（TAGNet） | `train_tagnet.py --gat-layers 3` | `run_summary.json`、`training_history.csv` |
-| 表 III、图 3（基线） | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | 同上；见下文"说明"第 1 条 |
+| 表 III（TAGNet） | `train_tagnet.py --gat-layers 3` | `run_summary.json`、`training_history.csv` |
+| 表 III（基线） | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | 同上；见下文"说明"第 1 条 |
 | 表 IV | `analyze_results.py` | `k_selection_metrics.csv`、`figures/fig_k_selection.*` |
-| 图 4 | `make_paper_figures.py`（底图由 `build_map_mask.py` 生成） | `paper_figures/fig4_cluster_heatmaps.*` |
-| 图 5 | `analyze_results.py`、`visualize_results.py` | `tsne_coordinates.parquet`、`figures/fig_tsne_clusters.*` |
-| 图 6 | `analyze_results.py`、`visualize_results.py` | `cluster_profiles.csv`、`figures/fig_cluster_area_over_time.*` |
-| 图 7(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
-| 图 7(b) | `team_fingerprints_by_name.py` | `team_style_similarity_by_name_pairs.csv`（相似度 = 1 − 余弦距离） |
-| 表 V、图 8(a) | `analyze_results.py` | `context_trigger_tests.csv` |
-| 图 9 | `analyze_results.py` | `h2_score_state_paired_ttest.csv`、`h2_score_state_team_pairs.csv` |
-| 表 VI、图 10 | 先用 `train_tagnet.py` 分别加 `--no-context`、`--no-graph`、`--single-snapshot 15` 训练，再运行 `ablation_table.py` | `results/ablations/ablation_table.csv` |
-| 表 VII、图 11(a) | `supplementary/rule_baseline.py` | `baseline_metrics.json`、`final_area_config_counts.csv` |
-| 表 VIII、图 11(b) | 先运行 `supplementary/run_supplement_suite.py`，再运行 `summarize_supplement.py` | `original_protocol_summary.csv` |
-| 表 IX、图 8(b)、表 V 的 Holm 列 | `supplementary/holm_correction.py` | `holm_summary.csv` 和校正后的各检验表 |
+| 图 3 | `make_paper_figures.py`（底图由 `build_map_mask.py` 生成） | `paper_figures/fig3_cluster_heatmaps.*` |
+| 图 4 | `analyze_results.py`、`visualize_results.py` | `tsne_coordinates.parquet`、`figures/fig_tsne_clusters.*` |
+| 图 5 | `analyze_results.py`、`visualize_results.py` | `cluster_profiles.csv`、`figures/fig_cluster_area_over_time.*` |
+| 图 6(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
+| 图 6(b) | `team_fingerprints_by_name.py` | `team_style_similarity_by_name_pairs.csv`（相似度 = 1 − 余弦距离） |
+| 表 V、图 7(a) | `analyze_results.py` | `context_trigger_tests.csv` |
+| 图 8 | `analyze_results.py` | `h2_score_state_paired_ttest.csv`、`h2_score_state_team_pairs.csv` |
+| 表 VI | 先用 `train_tagnet.py` 分别加 `--no-context`、`--no-graph`、`--single-snapshot 15` 训练，再运行 `ablation_table.py` | `results/ablations/ablation_table.csv` |
+| 表 VII、图 9(a) | `supplementary/rule_baseline.py` | `baseline_metrics.json`、`final_area_config_counts.csv` |
+| 表 VIII、图 9(b) | 先运行 `supplementary/run_supplement_suite.py`，再运行 `summarize_supplement.py` | `original_protocol_summary.csv` |
+| 表 IX、图 7(b)、表 V 的 Holm 列 | `supplementary/holm_correction.py` | `holm_summary.csv` 和校正后的各检验表 |
 
-`scripts/make_paper_figures.py` 根据 `results/` 中的文件绘制论文中图 3–11 的正式版本（矢量 PDF 和 600 dpi PNG，按 IEEE 版面尺寸），输出到 `results/paper_figures/`。图 1、图 2 是示意图。图 4 的灰色底图是根据已解析录像中的选手位置估计出的 Dust2 可行走区域（`data/map/dust2_walkable_mask.npz`，由 `scripts/build_map_mask.py` 生成），没有使用任何游戏素材。
+`scripts/make_paper_figures.py` 根据 `results/` 中的文件绘制论文中图 3–9 的正式版本，以及训练曲线、K 值曲线和消融雷达图（矢量 PDF 和 600 dpi PNG，按 IEEE 版面尺寸），输出到 `results/paper_figures/`。图 1、图 2 是示意图。图 3 的灰色底图是根据已解析录像中的选手位置估计出的 Dust2 可行走区域（`data/map/dust2_walkable_mask.npz`，由 `scripts/build_map_mask.py` 生成），没有使用任何游戏素材。
 
 补充实验的完整命令：
 
@@ -253,14 +253,14 @@ python supplementary/holm_correction.py --analysis-dir results/tagnet_main/run_a
 | `supplementary/{summary,rule_baseline,holm}` | 表 VII–IX |
 
 <p align="center">
-  <img src="docs/figures/fig11_supplementary.png" width="85%" alt="补充实验各变体">
-  <br><em>补充实验：规则基线与各变体（图 11）</em>
+  <img src="docs/figures/fig9_supplementary.png" width="85%" alt="补充实验各变体">
+  <br><em>补充实验：规则基线与各变体（图 9）</em>
 </p>
 
 `results/` 中所有分析输出，都是用本仓库的代码，基于保存的权重和回合向量重新生成的，并且和论文所用的输出一致：
 - 所有统计表和聚类表的误差在 1e-11 以内。
 - 注意力矩阵（在 CPU 上由 GPU 权重重新计算）的误差在 1e-6 以内。
-- 例外是 t-SNE 坐标，它会随 scikit-learn 版本变化。论文图 5 使用的布局单独保存在 `tagnet_main/run_analysis/tsne_coordinates_paper_fig6.parquet`。
+- 例外是 t-SNE 坐标，它会随 scikit-learn 版本变化。论文图 4 使用的布局单独保存在 `tagnet_main/run_analysis/tsne_coordinates_paper_fig6.parquet`。
 
 在 CPU 上从头重新训练的结果：
 

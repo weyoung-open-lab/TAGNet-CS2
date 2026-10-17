@@ -1,9 +1,9 @@
-"""Team tactical fingerprints and style similarity by team name (paper Figs. 8 and 9).
+"""Team tactical fingerprints and style similarity by team name (paper Fig. 6(a) and (b)).
 
 ``analyze_results.py`` writes one fingerprint per CT line-up (``ct_team_key``).
 This script merges line-ups that share a team name, weighting by round count,
 and computes the pairwise cosine distance between team fingerprints. The
-similarity shown in Fig. 9 is ``1 - cosine_distance``.
+similarity shown in Fig. 6(b) is ``1 - cosine_distance``.
 """
 from __future__ import annotations
 

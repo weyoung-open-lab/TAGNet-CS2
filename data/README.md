@@ -9,7 +9,7 @@
 | `match_list.csv` | The 34 parsed Dust2 match folders: inclusion flag, exclusion reason, split, round counts, demo patch and server. 33 matches are used; `legacy-vs-aurora_dust2` is excluded because its demo header reports a map other than `de_dust2`. |
 | `processed/dust2_ct_5snap/` | Model-ready dataset used for TAGNet and all supplementary experiments (snapshots at 10/12/15/18/20 s). |
 | `processed/dust2_ct_3snap/` | The same 697 rounds sampled at 10/15/20 s. Used only for the 2-layer baseline of Table III. |
-| `map/dust2_walkable_mask.npz` | Base map of Fig. 4: Dust2 walkable area on a 16-unit grid, estimated from about 5 million player positions in three parsed matches by `scripts/build_map_mask.py`. |
+| `map/dust2_walkable_mask.npz` | Base map of Fig. 3: Dust2 walkable area on a 16-unit grid, estimated from about 5 million player positions in three parsed matches by `scripts/build_map_mask.py`. |
 | `parsed/` | Not included. Output location of `scripts/parse_demos.py`, i.e. one folder of raw Awpy tables per match. |
 
 The raw `.dem` files are not redistributed. The dataset was derived from
