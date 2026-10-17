@@ -4,6 +4,7 @@ Output (vector PDF and 600 dpi PNG, named by figure number in the paper):
 
     fig3_convergence        training curves of the baseline and TAGNet
     k_selection_curves      K-selection curves (numbers in Table IV)
+    fig4_cluster_heatmaps   CT positions of each cluster at 15 s on the Dust2 base map
     fig5_tsne               t-SNE of the round embeddings
     fig6_area_over_time     area occupancy of each cluster over time
     fig7_team_style         (a) team fingerprints, (b) team style similarity
@@ -12,7 +13,7 @@ Output (vector PDF and 600 dpi PNG, named by figure number in the paper):
     fig10_ablation_radar    ablation radar chart
     fig11_supplementary     (a) rule-based baseline, (b) supplementary variants
 
-Figs. 1 and 2 are diagrams; Fig. 4 overlays the cluster heatmaps on the Dust2 radar.
+Figs. 1 and 2 are diagrams. The base map of Fig. 4 is built by build_map_mask.py.
 """
 from __future__ import annotations
 
@@ -34,6 +35,8 @@ from scipy import stats
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS = REPO_ROOT / "results"
 ANALYSIS = RESULTS / "tagnet_main" / "run_analysis"
+NODES = REPO_ROOT / "data" / "processed" / "dust2_ct_5snap" / "ct_snapshot_nodes.parquet"
+MAP_MASK = REPO_ROOT / "data" / "map" / "dust2_walkable_mask.npz"
 COLUMN = 3.5
 PAGE = 7.16
 
@@ -235,6 +238,74 @@ def fig_k_selection(out_dir: Path) -> None:
     draw_k_selection(list(axes))
     fig.tight_layout(w_pad=0.4)
     save(fig, out_dir, "k_selection_curves")
+
+
+# Fig. 4 ---------------------------------------------------------------------
+
+def fig4_cluster_heatmaps(out_dir: Path) -> None:
+    from matplotlib import patheffects
+    from matplotlib.colors import ListedColormap
+    from scipy import ndimage
+
+    base = np.load(MAP_MASK)
+    walkable, map_x, map_y = base["mask"], base["x_edges"], base["y_edges"]
+    nodes = pd.read_parquet(NODES, columns=["sample_id", "second", "area", "X", "Y"])
+    assignments = pd.read_parquet(ANALYSIS / "analysis_cluster_assignments_bestk.parquet", columns=["sample_id", "cluster_id"])
+    nodes = nodes[nodes["second"] == 15].merge(assignments.drop_duplicates(), on="sample_id")
+
+    x0, x1, y0, y1, cell = -2300, 1900, 250, 3200, 40
+    bins_x = np.arange(x0, x1 + cell, cell)
+    bins_y = np.arange(y0, y1 + cell, cell)
+    centre_x = ((bins_x[:-1] + cell / 2 - map_x[0]) // (map_x[1] - map_x[0])).astype(int)
+    centre_y = ((bins_y[:-1] + cell / 2 - map_y[0]) // (map_y[1] - map_y[0])).astype(int)
+    on_map = walkable[np.ix_(np.clip(centre_x, 0, walkable.shape[0] - 1), np.clip(centre_y, 0, walkable.shape[1] - 1))]
+
+    density = {}
+    for cluster in range(6):
+        group = nodes[nodes["cluster_id"] == cluster]
+        counts, _, _ = np.histogram2d(group["X"], group["Y"], bins=[bins_x, bins_y])
+        density[cluster] = ndimage.gaussian_filter(counts, 1.0) / group["sample_id"].nunique() * on_map
+    vmax = np.percentile(np.concatenate([d[d > 0] for d in density.values()]), 99.5)
+
+    places = {
+        "B site": (-1700, 3060),
+        "A site": (1250, 3040),
+        "CT": (150, 2640),
+        "Mid": (-350, 560),
+        "Short": (80, 1950),
+        "Long A": (1150, 850),
+        "B tun.": (-1880, 760),
+    }
+    halo = [patheffects.withStroke(linewidth=1.3, foreground="white")]
+    fig, axes = plt.subplots(2, 3, figsize=(COLUMN, 2.0), gridspec_kw={"wspace": 0.04, "hspace": 0.3})
+    for cluster, ax in enumerate(axes.flat):
+        ax.imshow(
+            np.where(walkable, 1.0, np.nan).T, origin="lower", extent=[map_x[0], map_x[-1], map_y[0], map_y[-1]],
+            cmap=ListedColormap(["#dadada"]), interpolation="nearest", zorder=0,
+        )
+        ax.imshow(
+            np.ma.masked_less(density[cluster], 0.02 * vmax).T, origin="lower",
+            extent=[x0, x0 + cell * (len(bins_x) - 1), y0, y0 + cell * (len(bins_y) - 1)],
+            cmap="YlOrRd", vmin=0, vmax=vmax, alpha=0.92, interpolation="bilinear", zorder=1,
+        )
+        ax.set_xlim(x0, x1)
+        ax.set_ylim(y0, y1)
+        ax.set_aspect("equal")
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.grid(False)
+        for spine in ax.spines.values():
+            spine.set_visible(True)
+            spine.set_linewidth(0.4)
+            spine.set_color("#8a8a8a")
+        share = nodes.loc[nodes["cluster_id"] == cluster, "area"].value_counts(normalize=True)
+        ax.set_title(
+            f"{CLUSTER_TITLES[cluster]}\nA {share.get('A', 0):.2f}, B {share.get('B', 0):.2f}, Mid {share.get('Mid', 0):.2f}",
+            fontsize=5.8, pad=1.5, linespacing=1.1,
+        )
+        for name, (x, y) in places.items():
+            ax.text(x, y, name, fontsize=5.0, color="#222222", ha="center", va="center", zorder=3, path_effects=halo)
+    save(fig, out_dir, "fig4_cluster_heatmaps")
 
 
 # Fig. 5 ---------------------------------------------------------------------
@@ -564,6 +635,7 @@ def main() -> None:
     setup_style()
     fig3_convergence(args.output_dir)
     fig_k_selection(args.output_dir)
+    fig4_cluster_heatmaps(args.output_dir)
     tsne = fig5_tsne(args.output_dir)
     tsne_inset(tsne, args.output_dir)
     fig6_area_over_time(args.output_dir)

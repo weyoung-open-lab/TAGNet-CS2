@@ -156,7 +156,7 @@ Without arguments, the analysis scripts read the reference run in `results/tagne
 | Table III, Fig. 3 (TAGNet) | `train_tagnet.py --gat-layers 3` | `run_summary.json`, `training_history.csv` |
 | Table III, Fig. 3 (baseline) | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | same files; see note 1 below |
 | Table IV | `analyze_results.py` | `k_selection_metrics.csv`, `figures/fig_k_selection.*` |
-| Fig. 4 | `visualize_results.py` | `figures/fig_cluster_position_heatmaps_15s.*` |
+| Fig. 4 | `make_paper_figures.py` (base map from `build_map_mask.py`) | `paper_figures/fig4_cluster_heatmaps.*` |
 | Fig. 5 | `analyze_results.py`, `visualize_results.py` | `tsne_coordinates.parquet`, `figures/fig_tsne_clusters.*` |
 | Fig. 6 | `analyze_results.py`, `visualize_results.py` | `cluster_profiles.csv`, `figures/fig_cluster_area_over_time.*` |
 | Fig. 7(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
@@ -168,7 +168,7 @@ Without arguments, the analysis scripts read the reference run in `results/tagne
 | Table VIII, Fig. 11(b) | `supplementary/run_supplement_suite.py`, then `summarize_supplement.py` | `original_protocol_summary.csv` |
 | Table IX, Fig. 8(b), Holm column of Table V | `supplementary/holm_correction.py` | `holm_summary.csv` and the corrected test tables |
 
-`scripts/make_paper_figures.py` draws the published versions of Figs. 3 and 5–11 from the files in `results/` (vector PDF and 600 dpi PNG, sized for the IEEE layout) into `results/paper_figures/`. Figs. 1 and 2 are diagrams, and Fig. 4 overlays the heatmaps on the Dust2 radar.
+`scripts/make_paper_figures.py` draws the published versions of Figs. 3–11 from the files in `results/` (vector PDF and 600 dpi PNG, sized for the IEEE layout) into `results/paper_figures/`. Figs. 1 and 2 are diagrams. The grey base map of Fig. 4 is the Dust2 walkable area estimated from player positions in parsed demos (`data/map/dust2_walkable_mask.npz`, built by `scripts/build_map_mask.py`), so no game asset is redistributed.
 
 Full commands for the supplementary experiments:
 

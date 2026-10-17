@@ -161,7 +161,7 @@ python scripts/team_fingerprints_by_name.py --analysis-dir runs/tagnet_analysis
 | 表 III、图 3（TAGNet） | `train_tagnet.py --gat-layers 3` | `run_summary.json`、`training_history.csv` |
 | 表 III、图 3（基线） | `train_tagnet.py --gat-layers 2 --legacy-baseline-encoder --data-dir data/processed/dust2_ct_3snap` | 同上；见下文"说明"第 1 条 |
 | 表 IV | `analyze_results.py` | `k_selection_metrics.csv`、`figures/fig_k_selection.*` |
-| 图 4 | `visualize_results.py` | `figures/fig_cluster_position_heatmaps_15s.*` |
+| 图 4 | `make_paper_figures.py`（底图由 `build_map_mask.py` 生成） | `paper_figures/fig4_cluster_heatmaps.*` |
 | 图 5 | `analyze_results.py`、`visualize_results.py` | `tsne_coordinates.parquet`、`figures/fig_tsne_clusters.*` |
 | 图 6 | `analyze_results.py`、`visualize_results.py` | `cluster_profiles.csv`、`figures/fig_cluster_area_over_time.*` |
 | 图 7(a) | `team_fingerprints_by_name.py` | `team_style_fingerprints_by_name.csv` |
@@ -173,7 +173,7 @@ python scripts/team_fingerprints_by_name.py --analysis-dir runs/tagnet_analysis
 | 表 VIII、图 11(b) | 先运行 `supplementary/run_supplement_suite.py`，再运行 `summarize_supplement.py` | `original_protocol_summary.csv` |
 | 表 IX、图 8(b)、表 V 的 Holm 列 | `supplementary/holm_correction.py` | `holm_summary.csv` 和校正后的各检验表 |
 
-`scripts/make_paper_figures.py` 根据 `results/` 中的文件绘制论文中图 3 和图 5–11 的正式版本（矢量 PDF 和 600 dpi PNG，按 IEEE 版面尺寸），输出到 `results/paper_figures/`。图 1、图 2 是示意图，图 4 是叠加在 Dust2 地图上的热力图。
+`scripts/make_paper_figures.py` 根据 `results/` 中的文件绘制论文中图 3–11 的正式版本（矢量 PDF 和 600 dpi PNG，按 IEEE 版面尺寸），输出到 `results/paper_figures/`。图 1、图 2 是示意图。图 4 的灰色底图是根据已解析录像中的选手位置估计出的 Dust2 可行走区域（`data/map/dust2_walkable_mask.npz`，由 `scripts/build_map_mask.py` 生成），没有使用任何游戏素材。
 
 补充实验的完整命令：
 
