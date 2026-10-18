@@ -10,6 +10,8 @@ number; the other files are extra views of results reported in the tables:
     fig7_context_tests      (a) significance and effect size, (b) raw vs. Holm p
     fig8_score_state        leading vs. trailing usage of each cluster
     fig9_supplementary      (a) rule-based baseline, (b) supplementary variants
+    fig6a_..., fig6b_...,   the sub-figures of Figs. 6, 7 and 9 as separate files,
+    fig7a_..., ..., fig9b_  as the journal asks for the final files
     training_curves         training curves of the baseline and TAGNet (Table III)
     k_selection_curves      K-selection curves (Table IV)
     ablation_radar          ablation radar chart (Table VI)
@@ -634,6 +636,29 @@ def fig9_supplementary(out_dir: Path) -> None:
     save(fig, out_dir, "fig9_supplementary")
 
 
+def subfigures(out_dir: Path) -> None:
+    fig = plt.figure(figsize=(PAGE / 2, 2.75))
+    draw_team_heatmap(fig, fig.add_axes([0.2, 0.17, 0.62, 0.8]))
+    save(fig, out_dir, "fig6a_team_fingerprints")
+    fig = plt.figure(figsize=(PAGE / 2, 2.75))
+    draw_team_similarity(fig, fig.add_axes([0.2, 0.17, 0.62, 0.8]))
+    save(fig, out_dir, "fig6b_team_similarity")
+    fig, ax = plt.subplots(figsize=(COLUMN, 1.45))
+    draw_significance(ax)
+    save(fig, out_dir, "fig7a_context_significance")
+    fig, ax = plt.subplots(figsize=(COLUMN, 1.45))
+    draw_raw_vs_holm(ax)
+    save(fig, out_dir, "fig7b_raw_vs_holm")
+    fig = plt.figure(figsize=(PAGE, 1.15))
+    grid = fig.add_gridspec(1, 4, left=0.05, right=0.99, top=0.9, bottom=0.12, wspace=0.32)
+    draw_rule_baseline([fig.add_subplot(grid[0, i]) for i in range(4)])
+    save(fig, out_dir, "fig9a_rule_baseline")
+    fig = plt.figure(figsize=(PAGE, 1.35))
+    grid = fig.add_gridspec(1, 2, left=0.05, right=0.99, top=0.9, bottom=0.12, wspace=0.16)
+    draw_supplementary_variants(fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]))
+    save(fig, out_dir, "fig9b_supplementary_variants")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Draw the data figures of the paper from results/.")
     parser.add_argument("--output-dir", type=Path, default=RESULTS / "paper_figures")
@@ -651,6 +676,7 @@ def main() -> None:
     fig8_score_state(args.output_dir)
     ablation_radar(args.output_dir)
     fig9_supplementary(args.output_dir)
+    subfigures(args.output_dir)
     print(f"Figures written to {args.output_dir}")
 
 
