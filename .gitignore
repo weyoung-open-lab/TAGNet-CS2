@@ -3,6 +3,6 @@ __pycache__/
 .DS_Store
 .venv/
 venv/
-runs/
+/runs/
 data/parsed/
 *.dem

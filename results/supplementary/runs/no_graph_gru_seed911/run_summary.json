@@ -1,0 +1,53 @@
+{
+  "device": "cuda",
+  "splits": {
+    "train": 486,
+    "val": 95,
+    "test": 116
+  },
+  "node_feat_dim": 22,
+  "context_dim": 25,
+  "place_dim": 20,
+  "snapshot_seconds": [
+    10,
+    12,
+    15,
+    18,
+    20
+  ],
+  "hidden_dim": 64,
+  "embedding_dim": 64,
+  "gat_layers": 3,
+  "gru_layers": 1,
+  "use_graph": false,
+  "use_context": true,
+  "single_snapshot": null,
+  "use_temporal": true,
+  "best_k_by_silhouette": 3,
+  "train_eval": {
+    "loss": 0.012906505609862506,
+    "place_loss": 0.001500781305367127,
+    "area_loss": 0.0007923471493995748,
+    "distance_loss": 0.011009550653398037
+  },
+  "val_eval": {
+    "loss": 0.014799171593040228,
+    "place_loss": 0.0016151152085512877,
+    "area_loss": 0.0008783402154222131,
+    "distance_loss": 0.012744886334985495
+  },
+  "test_eval": {
+    "loss": 0.014445028267800808,
+    "place_loss": 0.001590029802173376,
+    "area_loss": 0.0008120773418340832,
+    "distance_loss": 0.012448959983885288
+  },
+  "protocol": "original_direct_snapshot_decoder",
+  "supplement_variant": {
+    "pool_mode": "gru",
+    "temporal_cell": "gru",
+    "node_position_mode": "place",
+    "edge_distance_column": "distance_xy_norm",
+    "lambda_hinge": 0.0
+  }
+}
