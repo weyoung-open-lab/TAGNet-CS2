@@ -266,3 +266,4 @@ Code is released under the MIT License (see `LICENSE`). The processed data are d
 ## Acknowledgements
 
 Demo parsing uses [Awpy](https://github.com/pnxenopoulos/awpy) (P. Xenopoulos, W. R. Freeman, and C. Silva, "Analyzing the Differences between Professional and Amateur Esports through Win Probability," WWW 2022).
+  
