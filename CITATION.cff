@@ -27,7 +27,18 @@ preferred-citation:
   title: "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2"
   journal: "IEEE Transactions on Games"
   year: 2026
-  notes: "Accepted for publication; volume, pages and DOI to be added."
+  doi: "10.1109/TG.2026.3745970"
+  url: "https://ieeexplore.ieee.org/document/11744413"
+  status: advance-online
+  notes: "Early Access; volume, issue and pages to be added."
+  keywords:
+    - "Counter-Strike 2"
+    - "graph attention networks"
+    - "temporal graph neural networks"
+    - "tactical pattern recognition"
+    - "unsupervised clustering"
+    - "esports analytics"
+    - "multi-agent spatiotemporal modeling"
   authors:
     - family-names: Zhang
       given-names: Xiang

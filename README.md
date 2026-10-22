@@ -3,7 +3,8 @@
 <p align="center"><b>Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2</b></p>
 
 <p align="center">
-  <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-IEEE%20Transactions%20on%20Games%202026-00629B"></a>
+  <a href="https://ieeexplore.ieee.org/document/11744413"><img alt="Paper" src="https://img.shields.io/badge/Paper-IEEE%20Transactions%20on%20Games%202026-00629B"></a>
+  <a href="https://doi.org/10.1109/TG.2026.3745970"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.1109%2FTG.2026.3745970-blue"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
   <img alt="Python" src="https://img.shields.io/badge/Python-3.11%20%7C%203.13-3776AB">
   <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C">
@@ -17,7 +18,7 @@
 
 Code, processed data and reference outputs for the paper
 
-> X. Zhang, R. Zhang, G. Chen, X. Cao, C. Yue, and C. Yuan, "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2," *IEEE Transactions on Games*, 2026 (accepted).
+> X. Zhang, R. Zhang, G. Chen, X. Cao, C. Yue, and C. Yuan, "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2," *IEEE Transactions on Games*, early access, 2026, doi: [10.1109/TG.2026.3745970](https://doi.org/10.1109/TG.2026.3745970).
 
 TAGNet represents the five CT players of a professional CS2 round on Dust2 as a fully connected player graph at five moments after the freeze time ends (10, 12, 15, 18 and 20 s). A distance-aware graph attention encoder, trained without labels, embeds each snapshot; the snapshot sequence and a per-snapshot match-context vector are aggregated in temporal order by a GRU into a 64-dimensional round embedding, and K-Means on these embeddings yields six defensive patterns (C0–C5). The patterns are then related to economy, score state and previous-round information, and summarised per team.
 
@@ -255,7 +256,8 @@ The losses are reproduced, but the clustering is sensitive to these small differ
   title   = {{TAGNet}: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional {Counter-Strike} 2},
   journal = {IEEE Transactions on Games},
   year    = {2026},
-  note    = {Accepted for publication}
+  doi     = {10.1109/TG.2026.3745970},
+  note    = {Early Access}
 }
 ```
 

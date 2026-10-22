@@ -3,7 +3,8 @@
 <p align="center"><b>面向职业《反恐精英 2》防守战术模式识别的时序注意力图网络</b></p>
 
 <p align="center">
-  <a href="#引用"><img alt="Paper" src="https://img.shields.io/badge/Paper-IEEE%20Transactions%20on%20Games%202026-00629B"></a>
+  <a href="https://ieeexplore.ieee.org/document/11744413"><img alt="Paper" src="https://img.shields.io/badge/Paper-IEEE%20Transactions%20on%20Games%202026-00629B"></a>
+  <a href="https://doi.org/10.1109/TG.2026.3745970"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.1109%2FTG.2026.3745970-blue"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
   <img alt="Python" src="https://img.shields.io/badge/Python-3.11%20%7C%203.13-3776AB">
   <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C">
@@ -17,7 +18,7 @@
 
 本仓库提供以下论文的代码、处理后的数据和参考输出：
 
-> X. Zhang, R. Zhang, G. Chen, X. Cao, C. Yue, and C. Yuan, "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2," *IEEE Transactions on Games*, 2026（已录用）。
+> X. Zhang, R. Zhang, G. Chen, X. Cao, C. Yue, and C. Yuan, "TAGNet: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional Counter-Strike 2," *IEEE Transactions on Games*, early access, 2026, doi: [10.1109/TG.2026.3745970](https://doi.org/10.1109/TG.2026.3745970)。
 
 TAGNet 把职业 CS2 比赛中 Dust2 地图上每个回合的 5 名 CT 选手，在冻结时间结束后的 5 个时刻（10、12、15、18、20 秒）各表示成一张全连接的选手图。无标签训练的距离感知图注意力编码器对每个快照编码；快照序列和每个快照的比赛情境向量按时间顺序由 GRU 聚合成 64 维的回合向量；对回合向量做 K-Means 聚类，得到 6 类防守模式（C0–C5）。之后再分析这些模式和经济、比分状态、上一回合信息之间的关系，并按队伍汇总。
 
@@ -302,7 +303,8 @@ CPU 和 GPU 之间的浮点计算差异会带来很小的数值差别，也可�
   title   = {{TAGNet}: Temporal Attention Graph Network for Defensive Tactical Pattern Recognition in Professional {Counter-Strike} 2},
   journal = {IEEE Transactions on Games},
   year    = {2026},
-  note    = {Accepted for publication}
+  doi     = {10.1109/TG.2026.3745970},
+  note    = {Early Access}
 }
 ```
 
