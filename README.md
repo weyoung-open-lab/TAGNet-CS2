@@ -28,7 +28,7 @@ TAGNet represents the five CT players of a professional CS2 round on Dust2 as a 
 - **No tactical labels.** The encoder is trained by reconstructing, at every snapshot, where the five players stand, how they occupy the A / B / Mid / CT areas, and how far apart they are.
 - **Six interpretable defensive patterns** discovered on 697 CT rounds from 33 top-tier matches, from anchor defence (C0) to aggressive forward pressure (C5).
 - **Context matters.** CT economy type is the strongest predictor of the chosen pattern (χ² = 96.25, Holm-corrected p < 0.001), and aggressive forward pressure (C5) is used significantly more often when trailing (p < 0.01).
-- **Fully reproducible.** Processed data, trained checkpoints and the outputs of every run in the paper are included; `./reproduce.sh` rebuilds the main results in about two minutes on a laptop CPU.
+- **Fully reproducible.** Processed data, trained checkpoints and the outputs of every run in the paper are included; `./reproduce.sh` rebuilds the main results in about two minutes on a laptop CPU. 
 
 ## Six defensive patterns
 
